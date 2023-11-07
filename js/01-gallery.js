@@ -1,6 +1,8 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
+console.log(galleryItems);
+
 const galleryContainer = document.querySelector(".gallery");
 const cardsMarkup = createGalleryItemsMarkup(galleryItems);
 
@@ -10,6 +12,7 @@ galleryContainer.addEventListener("click", onClickImg);
 // Markup
 
 function createGalleryItemsMarkup(items) {
+  // console.log(items);
   return items
     .map(({ preview, original, description }) => {
       return `<li class="gallery__item">
@@ -31,6 +34,7 @@ function createGalleryItemsMarkup(items) {
 const instance = basicLightbox.create(`<img width="" height="" src="">`, {
   onShow: (instance) => {
     window.addEventListener("keydown", onCloseEscKey);
+    // console.log(instance);
   },
   onClose: (instance) => {
     window.removeEventListener("keydown", onCloseEscKey);
