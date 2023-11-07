@@ -9,8 +9,8 @@ galleryContainer.addEventListener("click", onClickImg);
 
 // Markup
 
-function createGalleryItemsMarkup(galleryItems) {
-  return galleryItems
+function createGalleryItemsMarkup(items) {
+  return items
     .map(({ preview, original, description }) => {
       return `<li class="gallery__item">
         <a class="gallery__link" href="${original}">
@@ -28,17 +28,14 @@ function createGalleryItemsMarkup(galleryItems) {
 
 // Модальне вікно
 
-const instance = basicLightbox.create(
-  `<img width="auto" height="auto" src="">`,
-  {
-    onShow: (instance) => {
-      window.addEventListener("keydown", onCloseEscKey);
-    },
-    onClose: (instance) => {
-      window.removeEventListener("keydown", onCloseEscKey);
-    },
-  }
-);
+const instance = basicLightbox.create(`<img width="" height="" src="">`, {
+  onShow: (instance) => {
+    window.addEventListener("keydown", onCloseEscKey);
+  },
+  onClose: (instance) => {
+    window.removeEventListener("keydown", onCloseEscKey);
+  },
+});
 
 function onClickImg(event) {
   event.preventDefault();
